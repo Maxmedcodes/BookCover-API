@@ -1,0 +1,26 @@
+<%- include("partials/header.ejs") %>
+
+<body>
+  <div class="modify_container">
+    <h2> Edit Post</h2>
+    <form action="/update" method="post" class="modify_form">
+        <% book.forEach(book => { %>
+            
+        <input type="hidden" name="updateId" value="<%=book.id%>">
+        <input type="text" name="title" value="<%= book.book_title %>">
+        <textarea name="comments" id="comments" cols="30" rows="15" placeholder="MAX 250 characters"><%= book.comments %></textarea>
+        <input type="number"  name="rating" min="0" max="5"  value="<%= book.rating %>"/>
+        <input type="text" name="author" value=" <%=book.author %>">
+   
+   <button class="full-width" type="submit" > Update Post</button>
+    </form>
+    <form action="/delete" method="post">
+        <input type="hidden" name="delete" value="<%= book.id %>">
+    <button class="full-width" type="submit" > Delete Post</button>
+    </form>
+    <% }); %>
+  </div>
+
+</body>
+
+</html>

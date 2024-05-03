@@ -1,0 +1,100 @@
+<%- include("partials/header.ejs") %>
+
+<body>
+    <div class="container">
+        <header class="d-flex justify-content-center py-3">
+          <ul class="nav nav-pills">
+            <li class="nav-item"><a href="/" class="nav-link active" aria-current="page">Home</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Library</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Documentation</a></li>
+          </ul>
+        </header>
+      </div>
+      <hr>
+    <form action="/add" method="post" class="bookform">
+        <div class="formbox"> 
+        <label for="search" class="label"> Book Title</label>
+        <input type="search" name="title" id="title" autocomplete="off">
+        <label for="author" class="label">Author</label>
+        <input type="text" name="author" id="author" autocomplete="off">
+        <label for="isbn" class="label">ISBN:</label>
+        <input type="text" name="isbn" id="isbn" placeholder="Required for Cover Image" autocomplete="off">
+        <div class="stars">
+        <label for="rating" class="label">Rating:</label>
+        <span id="star1" onclick="fillstar(id)">★</span>
+        <span id="star2" onclick="fillstar(id)">★</span>
+        <span id="star3" onclick="fillstar(id)">★</span>
+        <span id="star4" onclick="fillstar(id)">★</span>
+        <span id="star5" onclick="fillstar(id)">★</span>
+        <span>The Rating is  <span id="displayRating"></span> / 5</span>
+        <input type="hidden" name="rating" id="rating">
+        <label for="comments" class="label">Comments:</label>
+        <textarea name="comments" id="comments" cols="30" rows="5"></textarea>
+        <br>
+        </div>
+        <input type="submit" value="submit" id="submit">
+        </div>
+        
+
+    </form>
+    
+    
+        <div class="contents" <% bookitems.forEach(book => { %>>
+            <div class="books">
+                <h3> <%= book.book_title %> <form action="/edit" method="post">
+                    <input type="hidden"  name="button" value="<%= book.id %>">
+                    <button  > Edit </button> 
+                </form> </h3>
+                <h6>By: <%= book.author %></h6>
+                <hr>
+                <img src="https://covers.openlibrary.org/b/isbn/<%=book.isbn%>-M.jpg " alt="" class="bookcovers">
+                <p class="reviews"> 
+                    <%= book.comments %>
+                </p>
+                <hr>       
+               <p class="bookrating"> The Rating is <%= book.rating %> / 5</p>
+                
+            </div>
+            <%  }); %>
+            <br>
+            <hr>
+            </div>
+
+           
+    <script>
+        function fillstar(id) {
+            // Clear all stars
+            for (let i = 1; i <= 5; i++) {
+                document.getElementById("star" + i).style.color = "black";
+            }
+            // Fill stars up to the selected one
+            for (let i = 1; i <= parseInt(id.charAt(4)); i++) {
+                document.getElementById("star" + i).style.color = "#FFD700";
+            }
+            // Update the displayed rating
+            document.getElementById("displayRating").textContent = id.charAt(4);
+            // Update the hidden input field
+            document.getElementById("rating").value = id.charAt(4);
+        }
+        function Edithand(){
+            document.getElementById('updaterating').removeAttribute("hidden",true) ;
+            document.getElementById('element2').setAttribute("hidden");
+            document.getElementById('return').removeAttribute("hidden")
+            document.getElementById('click').setAttribute('hidden',true);
+            event.preventDefault();
+        }
+        function Submithand(){
+            document.getElementById('title').removeAttribute("hidden");
+            document.getElementById('hiddeninput').setAttribute("hidden",true);
+            document.getElementById('return').setAttribute('hidden',true)
+            document.getElementById('click').removeAttribute('hidden');
+            document.getElementById('hiddenp').removeAttribute('hidden')
+            paragraph.textContent=text.value
+
+        }
+        var paragraph = document.getElementById('title')
+        var button = document.getElementById('return');
+        var text = document.getElementById('hiddeninput');    
+    </script>
+</body>
+<%- include("partials/footer.ejs") %>

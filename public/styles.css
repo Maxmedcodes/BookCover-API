@@ -1,0 +1,135 @@
+.bookform{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+.formbox{
+    margin-top: 50px;
+    border: solid 2px black;
+    padding: 10px;
+    border-radius: 5%;
+    background-color: rgba(0, 0, 0, 0.1);
+    color: black;
+}
+
+.label{
+    display: block;
+} 
+body{
+    background-color: white;
+    color: black;
+}
+/* Adjust Form  */
+#comments{
+    background-color: #f7f7f7 ;
+}
+#isbn{
+background-color: #f7f7f7;
+}
+#author{
+    background-color: #f7f7f7 ;
+}
+#title{
+    background-color: #f7f7f7;
+}
+
+.contents{
+    margin-top: 50px;
+    border: solid 5px black;
+    margin-left: 50px;
+    margin-right: 50px;
+    border-radius: 2.5%;
+    
+}
+
+.books{
+    
+    align-content: center;
+    text-align: center;
+    margin-left: 5opx;
+    border-radius: 5%;
+    padding: 20px;
+}
+.bookrating{
+    text-align: right;
+    display: inline-block;
+    align-items: end;
+    position: relative;
+    left: 250px;
+}
+
+.bookcovers{
+    float: left;
+    height: 300px;
+    width: 200px;
+}
+
+.reviews{
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+}
+hr{
+    color:  black ;
+    height: 20px;
+    padding-top: 20px;
+    border: none;
+    background: black;
+}
+h3{
+    display: inline-flex;
+    justify-content: center;
+}
+.edit{
+    display:inline-flex;
+    justify-content: center;
+    align-content: space-evenly;
+    margin-left: 50px;
+}
+
+#submit{
+    display: flex;
+    justify-content: center;
+    margin-left: 80px;
+    /* margin-right: 50px; */
+}
+
+#element1{
+    margin-right: 20px;
+}
+
+.book_section{
+    border: solid 2px black;
+    
+    margin-bottom: 50px;
+}
+.text_section{
+    display: block;
+    flex-grow: 1;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+#edit{
+    text-align: center;
+    display: flex;
+}
+/* style for modify page */
+.modify_container{
+    max-width: 800px;
+    border: solid 2px black;
+    background-color:aliceblue;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    margin:50px
+}
+.modify_form{
+    display: flex;
+    flex-direction: column;
+    margin: 15px;
+}
+.full-width{
+    margin-bottom: 20px;
+}
