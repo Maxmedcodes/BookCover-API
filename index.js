@@ -29,6 +29,10 @@ pool.connect((err, client, release) => {
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
+app.get("/posts", async(req,res)=>{
+  res.render("posts.ejs")
+})
+
 app.get("/", async (req, res) => {
   try {
     const result = await pool.query("SELECT * FROM books");
