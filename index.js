@@ -10,11 +10,14 @@ const app = express();
 const port = 3000;
 const { Pool } = pkg;
 const pool = new Pool({
+  connectionString:process.env.PGURL,
   user: process.env.PGUSER,
   host: process.env.PGHOST,
   database: process.env.PGDATABASE,
   password: process.env.PGPASSWORD,
   port: process.env.PGPORT,
+  ssl:true
+  
 });
 
 pool.connect((err, client, release) => {
