@@ -1,7 +1,7 @@
 import express, { json, response } from "express";
 import bodyParser from "body-parser";
 import pkg from "pg";
-import axios from "axios";
+
 import env from "dotenv";
 
 env.config();
